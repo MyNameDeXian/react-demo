@@ -1,0 +1,21 @@
+{
+  "name": "react-demo",
+  "version": "1.0.0",
+  "description": "imitation dazhongdianping react-demo",
+  "main": "index.jsx",
+  "scripts": {
+    "start": "set NODE_ENV=dev && webpack-dev-server --progress --colors",
+    "mock": "node --harmony ./mock/server.js",
+    "build": "rd/s/q build && set NODE_ENV=production && webpack --config ./webpack.production.config.js --progress --colors",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MyNameDeXian/react-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MyNameDeXian/react-demo/issues"
+  },
+  "homepage": "https://github.com/MyNameDeXian/react-demo#readme"
+}
