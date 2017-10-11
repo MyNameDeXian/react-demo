@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Container from 'Container'
+import Footer from 'components/Footer'
+import InputRow from 'components/InputRow'
 
 import './home.scss'
 
@@ -13,9 +15,11 @@ class Home extends Component {
 	render() {
 		return(
 			<Container>
-				<div className="home">
+				<div className="home content">
 					content
 				</div>
+				<InputRow />
+				<Footer/>
 			</Container>
 		)
 	}

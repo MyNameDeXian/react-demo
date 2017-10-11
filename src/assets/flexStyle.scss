@@ -5,12 +5,10 @@
 	display: flex;
 	flex-direction: row;
 }
-
 .flex-col{
 	display: flex;
 	flex-direction: column;
 }
-
 // justify-content 主轴方向
 // 两端对齐，项目之间的间隔都相等
 .flex-jc-sb{
@@ -63,7 +61,18 @@
 	@extend .flex-row;
 	@extend .flex-jc-center;
 }
-
+// row 垂直居中 水平两端对齐
+.flex-row-c-sp{
+	@extend .flex-row;
+	@extend .flex-ai-center;
+	@extend .flex-jc-sb;
+}
+// row 垂直居中 水平两端等距离对齐
+.flex-row-c-sa{
+	@extend .flex-row;
+	@extend .flex-ai-center;
+	@extend .flex-jc-sa;
+}
 // col + 垂直水平方向居中
 .flex-col-center{
 	@extend .flex-col;

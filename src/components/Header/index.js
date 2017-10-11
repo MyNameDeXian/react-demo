@@ -10,7 +10,7 @@ class Header extends Component {
 	render() {
 		return(
 			<div className="header flex-row-center">
-				I'm title.
+				I am title.
 			</div>
 		)
 	}
