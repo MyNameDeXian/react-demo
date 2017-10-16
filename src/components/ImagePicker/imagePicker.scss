@@ -1,0 +1,59 @@
+// title 的高度
+$headerHeight: .8rem;
+
+.image-picker{
+	height: 3.09rem;
+	margin-top: .3rem;
+	background: #fff;
+	header{
+		height: $headerHeight;
+		line-height: $headerHeight;
+		padding-left: .32rem;
+		font-size: .24rem;
+		color: #333;
+		border-bottom: 1PX solid #eee;
+	}
+	.picker-box{
+		box-sizing: border-box;
+		height: 2.29rem;
+		padding: .4rem .2rem 0 .34rem;
+		display: flex;
+		flex-direction: row;
+		.picker-item{
+			position: relative;
+			width: 30%;
+			height: 1.48rem;
+			line-height: 1.48rem;
+			text-align: center;
+			margin-right: 2%;
+			border: 1PX dashed #bdbdbd;
+			border-radius: .15rem;
+			font-size: .5rem;
+			color: #bdbdbd;
+			background-size: 100% 100%; 
+			.close{
+				position: absolute;
+				right: -0.1rem;
+				top: -0.1rem;
+				width: .3rem;
+				height: .3rem;
+				line-height: .3rem;
+				border-radius: 50%;
+				font-size: .2rem;
+				color: #fff;
+				text-align: center;
+				background: #bdbdbd;
+				z-index: 101;
+			}
+			input{
+				opacity: 0;
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 100%;
+				width: 100%;
+				z-index: 100;
+			}
+		}
+	}
+}

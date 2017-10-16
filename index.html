@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initail-scale=1.0, maximum-scale=1.0, use-scalable=no " />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<title>react demo</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
 		setBodyFontSize();
 		// set 1rem = viewWidth / 10
 		function setRemUnit () {
-		    var rem = docEl.clientWidth / 375 * 10
+		    var rem = docEl.clientWidth / 750 * 100
 		    docEl.style.fontSize = rem + 'px'
 		}
 		setRemUnit()

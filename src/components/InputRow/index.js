@@ -19,7 +19,7 @@ class InputRow extends Component {
 
 	render(){
 		return (
-			<div className="input-row flex-row-c-sa">
+			<div className="input-row flex-row-aic" key='inputRow'>
 				<p>标题</p>
 				<input onFocus={this.onFocus} type="text"/>
 			</div>

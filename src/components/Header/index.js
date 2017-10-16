@@ -10,7 +10,11 @@ class Header extends Component {
 	render() {
 		return(
 			<div className="header flex-row-center">
-				I am title.
+				<div className="back"></div>
+				<div className="title">
+					{ this.props.children }
+				</div>
+				<div className="rightMemu"></div>
 			</div>
 		)
 	}
