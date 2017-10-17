@@ -1,64 +1,67 @@
-// 获取当前 年、月、日 和当前月有多少天。
+// 开发者：2017-10-17 李德贤  QQ:517334881
+//-------------------------------------------------------
+// 获取当前 年、月、日 和当前月有多少天,第一天是星期几
 export function getNewDate(){
 	let date = new Date();
 	let year = date.getFullYear();
 	let month = date.getMonth() + 1;
 	let day = date.getDate();
-	let lastDay = calcLastDay(year, manth);
-	return setTwoNum({ year, month, day, lastDay});
+	let lastDay = calcLastDay(year, month);
+	let firstDay = calcFirstDay(year, month);
+	return setTwoNum({ year, month, day, firstDay, lastDay});
 }
-// 根据选择的年日月，计算当月有多少天。
+// 根据选择的年日月，计算当月有多少天,计算第一天是星期几
 export function calcDate( year, month, day ){
-	let lastDay = calcLastDay(year, manth);
-	return setTwoNum({ year, month, day, lastDay});
+	let lastDay = calcLastDay(year, month);
+	let firstDay = calcFirstDay(year, month);
+	return setTwoNum({ year, month, day, firstDay, lastDay});
 }
-// 计算前一天 年 月 日; 参数为 当前天的 年 月 日 对象
+// 计算前一天 年 月 日; 参数为 当前显示天的 年 月 日 对象
 export function calcBeforeDay( dates ){
-	dates.day-- ;
-	if( dates.day === 0 ){
-		dates.month--;
-		if( month === 0 ){
-			dates.year--;
-			dates.month = 12;
-			dates.day = 31;
-			dates.lastDay = 31;
+	let { year, month, day, lastDay, firstDay } = dates;
+	if( --day == 0 ){
+		if( --month == 0 ){
+			year--;
+			month = 12;
 		}
+		day = calcLastDay(year, month);
+		lastDay = calcLastDay(year, month);
+		firstDay = calcFirstDay(year, month);
 	}
-	return setTwoNum( dates );
+	return setTwoNum({ year, month, day, firstDay, lastDay});
 }
-// 计算后一天 年 月 日; 参数为 当前天的 年 月 日
+// 计算后一天 年 月 日; 参数为 当前显示天的 年 月 日
 export function calcNextDay( dates ){
-	dates.day++ ;
-	if( dates.day > dates.lastDay ){
-		dates.month++;
-		if( month === 13 ){
-			dates.year++;
-			dates.month = 1;
-			dates.day = 1;
-			dates.lastDay = 31;
+	let { year, month, day, lastDay, firstDay } = dates;
+	if( ++day > lastDay ){
+		if( ++month > 12 ){
+			year++;
+			month = 1;
 		}
+		day = 1;
+		lastDay = calcLastDay(year, month);
+		firstDay = calcFirstDay(year, month);
 	}
-	return setTwoNum( dates );
+	return setTwoNum({ year, month, day, firstDay, lastDay});
 }
-// 计算当前月 有多少天
+// 根据传过来的年月，计算该月有多少天
 export function calcLastDay(year, month){
-	let lastDay = 30;
-	if( month == 2 ) {
-		lastDay = new Date(year, month, 29) === 29 ? 28 ;
-	} else {
-		lastDay = new Date(year, month, 31) === 31 ? 30 ;
-	}
-	return lastDay;
+	let days = new Date(year, --month, 31).getDate();
+	return days - 31 === 0 ? 31 : 31 - days;
+}
+// 计算第一天是星期几
+export function calcFirstDay(year, month){
+	return new Date(year, --month, 1).getDay()
 }
 // 把小于 10 月、日数，转为 2 位字符串
 export function setTwoNum( dates ){
-	if( dates.month < 10 ){
+	if( String(dates.month).length < 2 ){
 		dates.month = '0' + dates.month;
 	}
-	if( dates.day < 10 ){
+	if( String(dates.day).length < 2 ){
 		dates.day = '0' + dates.day;
 	}
-	return dates;
+	return { ...dates };
 }
 
 

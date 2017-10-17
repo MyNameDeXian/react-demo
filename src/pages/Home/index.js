@@ -3,6 +3,7 @@ import Container from 'Container'
 import Footer from 'components/Footer'
 import InputRow from 'components/InputRow'
 import ImagePicker from 'components/ImagePicker'
+import Calendar from 'components/Calendar'
 
 import './home.scss'
 
@@ -18,6 +19,7 @@ class Home extends Component {
 		return(
 			<Container title="Home">
 				<div className="home flex-1">
+					<Calendar />
 					<ImagePicker
 						files = { files }
 						title = "上传凭证"

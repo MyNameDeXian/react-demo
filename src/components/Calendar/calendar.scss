@@ -1,0 +1,27 @@
+.calendar{
+	header{
+		height: .6rem;
+		margin-top: .3rem;
+		padding: .1rem .3rem;
+		background: #fff;
+	}
+	.weeks{
+		height: .6rem;
+		background: #ddd;
+	}
+	.calendar-items{
+		.item{
+			width: 14.2%;
+			height: .6rem;
+			float: left;
+			&.on{
+				background: #abc;
+			}
+		}
+		&:after{
+			display: table;
+			content: '';
+			clear: both;
+		}
+	}
+}
