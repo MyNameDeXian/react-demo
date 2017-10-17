@@ -2,7 +2,6 @@
 $headerHeight: .8rem;
 
 .image-picker{
-	height: 3.09rem;
 	margin-top: .3rem;
 	background: #fff;
 	header{
@@ -15,31 +14,28 @@ $headerHeight: .8rem;
 	}
 	.picker-box{
 		box-sizing: border-box;
-		height: 2.29rem;
-		padding: .4rem .2rem 0 .34rem;
-		display: flex;
-		flex-direction: row;
+		padding: .3rem 0 .3rem 2.5%;
 		.picker-item{
 			position: relative;
 			width: 30%;
 			height: 1.48rem;
 			line-height: 1.48rem;
 			text-align: center;
-			margin-right: 2%;
+			margin-right: 2.5%;
 			border: 1PX dashed #bdbdbd;
 			border-radius: .15rem;
 			font-size: .5rem;
 			color: #bdbdbd;
-			background-size: 100% 100%; 
+			background-size: cover; 
+			background-position: center;
 			.close{
 				position: absolute;
 				right: -0.1rem;
 				top: -0.1rem;
 				width: .3rem;
 				height: .3rem;
-				line-height: .3rem;
 				border-radius: 50%;
-				font-size: .2rem;
+				font-size: .1rem;
 				color: #fff;
 				text-align: center;
 				background: #bdbdbd;

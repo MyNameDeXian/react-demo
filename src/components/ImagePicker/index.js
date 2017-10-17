@@ -20,12 +20,12 @@ class ImagePicker extends Component {
 		}
 	}
 	render() {
-		let { title } = this.props;
+		let { title, className, style } = this.props;
 		let { imgs } = this.state;
 		return(
-			<div className="image-picker">
+			<div className={"image-picker " + (className || '')} style={ style || null }>
 				{ title == null ? null : <header>{ title }</header> }
-				<div className="picker-box">
+				<div className="picker-box flex-row">
 					{ this.makePickerItems(3) }
 				</div>
 			</div>
@@ -41,7 +41,7 @@ class ImagePicker extends Component {
 				{
 					imgs[key] == null
 					? null
-					: <div onClick={ this.removeImage.bind(this, key) } className="close" > x </div>
+					: <div onClick={ this.removeImage.bind(this, key) } className="close flex-row-center" > X </div>
 				}
 				<input ref={key} onChange={ this.onChangeFile } type="file" name="file" accept="image/jpg,image/jpeg,image/png,image/gif"/>
 			</div>
