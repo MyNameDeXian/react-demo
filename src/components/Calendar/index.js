@@ -6,7 +6,7 @@ class Calendar extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			weeks: ["日", "一", "二", "三", "四", "五", "六"],
+			
 		}
 	}
 	componentWillMount() {
@@ -27,13 +27,20 @@ class Calendar extends Component {
 					<div onClick={ this.nextDay }>后一天</div>
 				</header>
 				<div className="weeks flex-row">
-					{ this.makeWeeks( this.state.weeks )}
+					{ calcDate.makeWeeks( this.weekItem )}
 				</div>
 				<div className="calendar-items">
-					{ this.makeDates( this.state.dates )}
+					{ calcDate.makeCalendar( dates, this.calendarItem )}
 				</div>
 			</div>
 		)
+	}
+	onCalendarItem = ( day ) => {
+		let { dates } = this.state;
+		dates.day = day;
+		let str = `${dates.year}-${dates.month}-${day}`;
+		this.setState({ dates });
+		console.log(str);
 	}
 	beforeDay = () =>{
 		let dates = calcDate.calcBeforeDay( this.state.dates );
@@ -45,36 +52,18 @@ class Calendar extends Component {
 		this.setState({ dates });
 		console.log(dates)
 	}
-	setWeek = ( week ) =>{
+	weekItem = ( week ) =>{
 		return <div key={week} className='flex-row-center flex-1'>{ week }</div>
 	}
-	makeWeeks = ( weeks ) =>{
-		let result = [];
-		for(let i=0; i<7; i++){
-			result[i] = this.setWeek( weeks[i] );
-		}
-		return result;
-	}
-	setDates = ( date, key ) =>{
+	
+	calendarItem = ( date, key ) =>{
 		let { dates } = this.state;
 		let bg = dates.day == date ? 'on' : '';
 		return (
-			<div key={key} className={ "item flex-row-center " + bg }>
+			<div onClick={ this.onCalendarItem.bind(this, date) } key={key} className={ "item flex-row-center " + bg }>
 				{ date }
 			</div>
 		)
-	}
-	makeDates = ( dates ) =>{
-		let { firstDay, lastDay } = dates;
-		let result = [];
-		for(let i=0; i < lastDay + firstDay; i++){
-			let date = i - firstDay + 1;
-			if( i < firstDay || date > lastDay ){
-				date = '';
-			}
-			result[i] = this.setDates( date, i );
-		}
-		return result;
 	}
 }
 

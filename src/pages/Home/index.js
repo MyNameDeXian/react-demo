@@ -17,7 +17,7 @@ class Home extends Component {
 	render() {
 		let { files } = this.state;
 		return(
-			<Container title="Home">
+			<Container title="I am Header">
 				<div className="home flex-1">
 					<Calendar />
 					<ImagePicker

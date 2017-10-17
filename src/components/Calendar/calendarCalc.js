@@ -1,5 +1,26 @@
 // 开发者：2017-10-17 李德贤  QQ:517334881
 //-------------------------------------------------------
+// 循环渲染到页面 的方法
+export function makeCalendar(dates, calendarItem){
+	let { firstDay, lastDay } = dates;
+	let result = [];
+	for( let i=0; i < firstDay + lastDay; i++ ) {
+		let date = i - firstDay + 1
+		if( i< firstDay || date > lastDay) {
+			date = '';
+		}
+		result[i] = calendarItem(date, i);
+	}
+	return result;
+}
+// 循环渲染星期日 - 星期六
+export function makeWeeks( weekItem ){
+	let weeks = ["日", "一", "二", "三", "四", "五", "六"];
+	for(let i=0; i<7; i++){
+		weeks[i] = weekItem( weeks[i] );
+	}
+	return weeks;
+}
 // 获取当前 年、月、日 和当前月有多少天,第一天是星期几
 export function getNewDate(){
 	let date = new Date();
