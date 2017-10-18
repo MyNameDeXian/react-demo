@@ -1,6 +1,6 @@
 // 开发者：2017-10-17 李德贤  QQ:517334881
 //-------------------------------------------------------
-// 循环渲染到页面 的方法
+// 循环渲染日历到页面 的方法
 export function makeCalendar(dates, calendarItem){
 	let { firstDay, lastDay } = dates;
 	let result = [];
