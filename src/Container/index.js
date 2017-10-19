@@ -6,15 +6,16 @@ class Container extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			winHeight: document.documentElement.clientHeight,
+			
 		}
 	}
 
 	render() {
 		let { winHeight } = this.state;
+		console.log(winHeight);
 		console.log(this.props.children);
 		return(
-			<div className="container flex-col" style={{height: winHeight}}>
+			<div className="container flex-col" style={{height: clientHeight, width: clientWidth}}>
 				<Header>
 					{ this.props.title }
 				</Header>

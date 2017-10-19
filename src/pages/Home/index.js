@@ -4,6 +4,7 @@ import Footer from 'components/Footer'
 import InputRow from 'components/InputRow'
 import ImagePicker from 'components/ImagePicker'
 import Calendar from 'components/Calendar'
+import ImageRows from 'components/ImageRows'
 
 import './home.scss'
 
@@ -13,6 +14,9 @@ class Home extends Component {
 		this.state = {
 			files: []
 		}
+	}
+	componentDidMount() {
+
 	}
 	render() {
 		let { files } = this.state;
@@ -25,6 +29,7 @@ class Home extends Component {
 						title = "上传凭证"
 						onChange={ this.onChangeFile }
 					></ImagePicker>
+					<ImageRows/>
 				</div>
 				<InputRow />
 				<Footer />
